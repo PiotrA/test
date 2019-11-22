@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Aplikacja pogodowa</title>
+</head>
+
+<body>
+
+<p>Wybierz miasto:</p>
+<form method="get">
+    <select name="city">
+      <option th:value="warsaw">Warszawa</option>
+      <option th:value="gdansk">Gdańsk</option>
+      <option th:value="krakow">Kraków</option>
+      <option th:value="wroclaw">Wrocław</option>
+      <option th:value="poznan">Poznań</option>
+      <option th:value="lodz">Łódź</option>
+      <option th:value="katowice">Katowice</option>
+    </select>
+    <br>
+    <input type="submit" value="Wybierz" />
+</form>
+
+<main role="main" class="container">
+    <div class="starter-template">
+        <h1 th:text="'Aktualna pogoda dla miasta ' + ${result.name}"></h1>
+        <h2>
+            <span th:text="'Temperatura: ' + ${result.main.temp} + ' °C'"></span>
+        </h2>
+        <h2>
+            <span th:text="'Ciśnienie: ' + ${result.main.pressure} + ' hPa'"></span>
+        </h2>
+        <h2>
+            <span th:text="'Aktualny stan: ' + ${result.weather[0].main}"></span>
+        </h2>
+        <h2>
+            <span th:text="'Wiatr: ' + ${result.wind.speed} + ' km/h'"></span>
+        </h2>
+        <h2>
+            <span th:text="'Zachmurzenie: ' + ${result.clouds.all} + ' %'"></span>
+        </h2>
+    </div>
+
+</main>
+
+</body>
+</html>
